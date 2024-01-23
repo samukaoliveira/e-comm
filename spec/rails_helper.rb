@@ -1,7 +1,8 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
 require 'vcr'
-requise 'simplecov'
+require 'simplecov'
+require 'faker'
 
 
 ENV['RAILS_ENV'] ||= 'test'
