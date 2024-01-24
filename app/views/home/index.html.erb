@@ -1,2 +1,11 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h1>Olá</h1>
+
+<% if user_signed_in? %>
+    <h1>BEM VINDO AO E-COMMERCE</h1>
+    <%= link_to "logout", destroy_user_session_path, method: :delete %>
+<% else %>
+    <h2>Você não está logado... Por favor, se cadastre</h2>
+    <%= link_to "Cadastre-se", new_user_registration_path %>
+    <%= link_to "login", new_user_session_path %>
+<% end %>
+
