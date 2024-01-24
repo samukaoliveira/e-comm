@@ -6,6 +6,6 @@
 <% else %>
     <h2>Você não está logado... Por favor, se cadastre</h2>
     <%= link_to "Cadastre-se", new_user_registration_path %>
-    <%= link_to "login", new_user_session_path %>
+    <%= link_to "login", new_user_session_path, class: "btn btn-success bi bi-people" %>
 <% end %>
 
