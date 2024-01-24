@@ -1,0 +1,71 @@
+[33mcommit 38d26f2ef028c2c19336af20cb55196a3284bed1[m[33m ([m[1;36mHEAD -> [m[1;32mshowzim[m[33m, [m[1;31morigin/showzim[m[33m)[m
+Author: soliveira <mucabatera@gmail.com>
+Date:   Tue Jan 23 17:50:53 2024 -0300
+
+    REFS #e-comm por Samuel Oliveira: Configurando o Devise
+
+[33mcommit e8bdc5c472cd8771f5f7f33e66b5fafe76de5509[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m)[m
+Author: soliveira <mucabatera@gmail.com>
+Date:   Tue Jan 23 16:36:07 2024 -0300
+
+    REFS #e-comm por Samuel Oliveira: Configurando o Faker
+
+[33mcommit 68c2d31f58aef4f63b786d35a441b5ead3f9df7b[m
+Author: soliveira <mucabatera@gmail.com>
+Date:   Tue Jan 23 16:31:35 2024 -0300
+
+    REFS #e-comm por Samuel Oliveira: Configurando o FactoryBot
+
+[33mcommit 286cab74795b7257eed3c359ad4e47e68757102e[m
+Author: soliveira <mucabatera@gmail.com>
+Date:   Tue Jan 23 16:28:02 2024 -0300
+
+    REFS #e-comm por Samuel Oliveira: Configurando o DatabaseCleaner
+
+[33mcommit a46eaf0c906ba6d8469256d50cacc44e68630f7f[m
+Author: soliveira <mucabatera@gmail.com>
+Date:   Tue Jan 23 16:21:02 2024 -0300
+
+    REFS #e-comm por Samuel Oliveira: Configurando o SimpleCov
+
+[33mcommit 7fc8512e0c4b98ac331e2b73ac7f0a13531aa365[m
+Author: soliveira <mucabatera@gmail.com>
+Date:   Tue Jan 23 16:18:10 2024 -0300
+
+    REFS #e-comm por Samuel Oliveira: Configurando o VCR
+
+[33mcommit 4fd9eeca399c3f15f0d1e1dd6daea4b72cbdad87[m
+Author: soliveira <mucabatera@gmail.com>
+Date:   Tue Jan 23 16:12:14 2024 -0300
+
+    REFS #e-comm por Samuel Oliveira: Limpando o Rails_helper e config do Shoulda-matchers
+
+[33mcommit 6bdf7b2f68fb9bfd4f4061ecdd76878e1c68119e[m
+Author: soliveira <mucabatera@gmail.com>
+Date:   Tue Jan 23 16:05:46 2024 -0300
+
+    REFS #e-comm por Samuel Oliveira: Configurando o Rspec
+
+[33mcommit c475ff83b98426203ea9397ec34a4c53dbbf1648[m
+Author: soliveira <mucabatera@gmail.com>
+Date:   Tue Jan 23 16:04:00 2024 -0300
+
+    REFS #e-comm por Samuel Oliveira: migrando do docker pra instalação local
+
+[33mcommit 513282b264da9cc9efb91394ef192fdbf1a53725[m
+Author: soliveira <mucabatera@gmail.com>
+Date:   Tue Jan 23 15:10:58 2024 -0300
+
+    REFS #e-comm por Samuel Oliveira: Variáveis de ambiente
+
+[33mcommit d07313af663947407cb070538ad80f3e6af54d11[m
+Author: soliveira <mucabatera@gmail.com>
+Date:   Tue Jan 23 14:59:06 2024 -0300
+
+    REFS #e-comm por Samuel Oliveira: Adicionando as primeiras Gems
+
+[33mcommit 769472c3eea150e54af86b4657b26d12334e8a29[m
+Author: soliveira <mucabatera@gmail.com>
+Date:   Tue Jan 23 14:33:53 2024 -0300
+
+    RFES #Commit ininial

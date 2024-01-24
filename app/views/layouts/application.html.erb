@@ -6,11 +6,15 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
   <body>
+    <button class="btn btn-success bi bi-0-circle">fdsafa</button>
+    <button class="btn btn-success bi bi-0-circle">fdsf</button>
+    <button class="btn btn-success bi bi-0-pencil">fdsafsa</button>
+    <i class="bi bi-bi-amd"></i>
     <%= yield %>
   </body>
 </html>

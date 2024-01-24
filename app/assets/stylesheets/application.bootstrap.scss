@@ -1,0 +1,15 @@
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons';
+
+.menu-item-profile {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.menu-item-profile li:hover {
+  background-color: #e4e4e4;
+}
+
+.input_image_full {
+  width: 100%;
+}
