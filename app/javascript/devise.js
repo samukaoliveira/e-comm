@@ -3,3 +3,4 @@ import "@hotwired/turbo-rails"
 import "./controllers"
 import * as bootstrap from "bootstrap"
 import "./mask"
+Turbo.session.drive = false
