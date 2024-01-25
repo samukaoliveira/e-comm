@@ -1,7 +1,9 @@
 <h2>Resend unlock instructions</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
+  <div class="text-center">  
+    <%= f.error_notification %>
+  </div>
   <%= f.full_error :unlock_token %>
 
   <div class="form-inputs">
