@@ -1,8 +1,9 @@
 <h2>Forgot your password?</h2>
 
 <%= simple_form_for(resource, html: { class: 'login-form' }, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <div class="text-center">  
+  <div class="text-center">
     <%= f.error_notification %>
+    <%= render 'devise/shared/error_messages' %>
   </div>
   <div class="form-inputs">
     <%= f.input :email,

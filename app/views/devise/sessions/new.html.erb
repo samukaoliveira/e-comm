@@ -1,7 +1,8 @@
 <%= simple_form_for(resource, html: { class: 'login-form'}, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="text-center">  
-      <%= f.error_notification %>
-    </div> 
+  <div class="text-center">
+    <%= f.error_notification %>
+    <%= render 'devise/shared/error_messages' %>
+  </div>
   <div class="form-inputs">
      
     <%= f.input :email,

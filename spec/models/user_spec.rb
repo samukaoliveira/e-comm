@@ -35,9 +35,7 @@ RSpec.describe User, type: :model do # rubocop:disable Metrics/BlockLength
 
       user2.save
       expect(user2.valid?).to eq(false)
-      expect(user2.errors.present?).to eq(true)
-      expect(user2.errors).to be_positive
-      binding.pry
+      expect(user2.errors.size).to be_positive
     end
   end
   
