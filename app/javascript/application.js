@@ -4,3 +4,7 @@ import "./controllers"
 import * as bootstrap from "bootstrap"
 import "./mask"
 import "./sbadmin/scripts"
+
+var jQuery = require('jquery')
+global.$ = global.jQuery = jQuery;
+window.$ = window.jQuery = jQuery;
