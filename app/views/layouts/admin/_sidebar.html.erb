@@ -2,7 +2,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<%= admin_root_path %>">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -14,7 +14,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="<%= admin_root_path %>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -24,7 +24,7 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Interface
+                Produtos
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
@@ -67,7 +67,7 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Addons
+                Finanças
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
@@ -105,11 +105,28 @@
                     <span>Tables</span></a>
             </li>
 
-             <!-- Nav Item - Tables -->
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Segurança
+            </div>
+
+             <!-- Nav Item - Alterar Senha -->
             <li class="nav-item">
-                <%= link_to "Sair", destroy_user_session_path, method: :delete, class: "nav-link" %>
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
+                
+                <%= link_to admin_edit_password_path, method: :delete, class: "nav-link" do %>
+                    <i class="fas fa-fw bi bi-key"></i><span> Alterar Senha</span>
+                <% end %>
+            </li>
+
+             <!-- Nav Item - Sair -->
+            <li class="nav-item">
+                
+                <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
+                    <i class="fas fa-fw bi bi-x-square"></i><span> Sair</span>
+                <% end %>
             </li>
 
             <!-- Divider -->

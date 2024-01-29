@@ -7,4 +7,7 @@ class User < ApplicationRecord
   validates :name, :phone, presence: true
 
   enum role: { user: 'user', admin: 'admin' }
+
+    
+
 end

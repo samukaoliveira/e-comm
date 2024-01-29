@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   
-  devise_for :users
+  devise_for :users, controllers: {
+  passwords: 'admin/passwords'
+}
+  
   #get 'home/index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -9,7 +12,8 @@ Rails.application.routes.draw do
 
    namespace :admin do
     root to: "home#index"
-    
+
+    get 'password/edit', to: redirect('users/edit'), as: 'edit_password'
     
     get "categories/", to: "categories#index", as: "categories"
     get "categories/new", to: "categories#new", as: "new_category"
