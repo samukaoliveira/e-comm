@@ -38,6 +38,8 @@ gem 'simple_form'
 
 gem "font-awesome-rails"
 
+gem 'pundit'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
@@ -71,7 +73,7 @@ group :development, :test do
   gem 'faker'
   gem 'pry-rails'
   gem 'rspec-rails'
-  gem 'rubocop'
+  #gem 'rubocop'
 end
 
 group :development do

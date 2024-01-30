@@ -13,8 +13,12 @@ module Admin
 
     # GET /categories/new
     def new
-      @product = Product.new
-      @categories = Category.all
+      @product = authorize Product.new
+    rescue Pundit::NotAuthorizedError
+      flash[:notice] = "Você só pode cadastrar um produto se tiver uma categoria cadastrada."
+      redirect_to action: :index
+
+      #@categories = Category.all
     end
 
     # GET /categories/1/edit

@@ -46,10 +46,18 @@ module Admin
     def destroy
       #@category = Category.find(params[:id])
       unless @category.nil?
-        @category.destroy
-        respond_to do |format|
-          format.html { redirect_to admin_categories_path, notice: 'Categoria excluída com sucesso.' }
-        end
+        if @category.products.empty?
+            @category.destroy
+            respond_to do |format|
+              format.html { redirect_to admin_categories_path, notice: 'Categoria excluída com sucesso.' }
+            end
+        elsif
+          respond_to do |format|
+            format.html { redirect_to admin_categories_path, 
+            notice: 'Não é possível excluir esta Categoria porque ainda existem produtos associados à ela.' }
+          end
+        end    
+
       else
         respond_to do |format|
           format.html { redirect_to admin_categories_path, notice: 'Categoria não encontrada.' }
