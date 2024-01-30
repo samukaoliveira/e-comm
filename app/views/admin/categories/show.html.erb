@@ -1,10 +1,17 @@
 <p style="color: green"><%= notice %></p>
 
+<h1 class="h3 mb--4 text-gray-800">Detalhes da categoria</h1>
+
 <%= render @category %>
 
-<div>
-  <%= link_to "Edit this category", admin_edit_category_path(@category) %> |
-  <%= link_to "Back to categories", admin_categories_path %>
-
-  <%= link_to "Destroy this category", admin_category_path(@category), method: :delete %>
+<div class="row">
+  <div class="col-lg-1">
+    <%= link_to "Voltar", admin_categories_path, class: "btn btn-secondary" %>
+  </div>
+  <div class="col-lg-1">
+    <%= link_to "Editar", admin_edit_category_path(@category), class: "btn btn-warning" %>
+  </div>
+  <div class="col-lg-1">
+    <%= button_to "Apagar", admin_category_path(@category), method: :delete, class: "btn btn-danger", onclick: "return confirm('Deseja realmente excluir?')" %>
+  </div>
 </div>

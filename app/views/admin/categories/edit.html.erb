@@ -1,10 +1,14 @@
-<h1>Editing category</h1>
+<h1>Editar categoria</h1>
 
 <%= render "form", category: @category %>
 
 <br>
 
-<div>
-  <%= link_to "Show this category", admin_category_path(@category) %> |
-  <%= link_to "Back to categories", admin_categories_path %>
+<div class="row">
+  <div class="col-lg-1">
+    <%= link_to "Voltar", admin_categories_path, class: "btn btn-secondary" %>
+  </div>
+  <div class="col-lg-1">
+    <%= link_to "Detalhes", admin_category_path(@category), class: "btn btn-info" %>
+  </div>
 </div>

@@ -24,7 +24,7 @@ module Admin
 
       respond_to do |format|
         if @category.save
-          format.html { redirect_to admin_categories_path(@category), notice: 'Categoria foi criada com sucesso.' }
+          format.html { redirect_to admin_category_path(@category), notice: 'Categoria foi criada com sucesso.' }
         else
           format.html { render :new, status: :unprocessable_entity }
         end
@@ -35,7 +35,7 @@ module Admin
     def update
       respond_to do |format|
         if @category.update(category_params)
-          format.html { redirect_to admin_categories_path(@category), notice: 'Categoria foi atualizada com sucesso.' }
+          format.html { redirect_to admin_category_path(@category), notice: 'Categoria foi atualizada com sucesso.' }
         else
           format.html { render :edit, status: :unprocessable_entity }
         end

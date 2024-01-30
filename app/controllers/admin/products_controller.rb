@@ -29,7 +29,7 @@ module Admin
 
       respond_to do |format|
         if @product.save
-          format.html { redirect_to admin_products_path(@product), notice: 'Produto foi criada com sucesso.' }
+          format.html { redirect_to admin_product_path(@product), notice: 'Produto foi criada com sucesso.' }
         else
           format.html { render :new, status: :unprocessable_entity }
         end
@@ -40,7 +40,7 @@ module Admin
     def update
       respond_to do |format|
         if @product.update(product_params)
-          format.html { redirect_to admin_products_path(@product), notice: 'Produto foi atualizada com sucesso.' }
+          format.html { redirect_to admin_product_path(@product), notice: 'Produto foi atualizada com sucesso.' }
         else
           format.html { render :edit, status: :unprocessable_entity }
         end
