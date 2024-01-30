@@ -23,6 +23,14 @@ Rails.application.routes.draw do
     patch "categories/:id", to: "categories#update", as: "update_category"
     delete "categories/:id", to: "categories#destroy", as: "destroy_category"
 
+    get "products/", to: "products#index", as: "products"
+    get "products/new", to: "products#new", as: "new_product"
+    post "products", to: "products#create", as: "create_product"
+    get "products/:id", to: "products#show", as: "product"
+    get "products/:id/edit", to: "products#edit", as: "edit_product"
+    patch "products/:id", to: "products#update", as: "update_product"
+    delete "products/:id", to: "products#destroy", as: "destroy_product"
+
       # resources :categories, except: [:destroy] do
     #   #delete "destroy", on: :member, as: "destroy"
       

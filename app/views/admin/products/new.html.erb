@@ -1,0 +1,25 @@
+<h1>Novo Produto</h1>
+
+<div class="row">
+
+  <div class="col-lg-12">
+
+    <div class="card shadow mb-4">
+
+      <div class="card-body">
+        
+        <%= render "form", product: @product, categories: @categories %>
+      
+      </div>
+
+    </div>
+
+  </div>
+  
+</div>
+
+<br>
+
+<div>
+  <%= link_to "Voltar para produtos", admin_products_path %>
+</div>
