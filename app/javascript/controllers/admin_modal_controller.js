@@ -12,6 +12,7 @@ export default class extends Controller {
     console.log(e)
     e.preventDefault()
     this.url = this.element.getAttribute("href")
+    console.log(this.url)
 
     fetch(this.url, {
       headers: {

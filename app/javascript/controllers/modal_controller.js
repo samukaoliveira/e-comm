@@ -13,5 +13,7 @@ export default class extends Controller {
 
   disconnect() {
     this.modal.hide()
+    this.modal.dispose()
+    Turbo.destroyFrame(this.element.closest("[id^='turbo-frame']"));
   }
 }

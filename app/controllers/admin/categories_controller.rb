@@ -33,13 +33,13 @@ module Admin
 
     # PATCH/PUT /categories/1 or /categories/1.json
     def update
-      respond_to do |format|
+      #espond_to do |format|
         if @category.update(category_params)
-          format.html { redirect_to admin_category_path(@category), notice: 'Categoria foi atualizada com sucesso.' }
+          redirect_to admin_category_path(@category), notice: 'Categoria foi atualizada com sucesso.'
         else
-          format.html { render :edit, status: :unprocessable_entity }
+          render :edit, status: :unprocessable_entity
         end
-      end
+      #end
     end
 
     # DELETE /categories/1 or /categories/1.json

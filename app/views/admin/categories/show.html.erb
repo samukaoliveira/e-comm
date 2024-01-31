@@ -9,7 +9,7 @@
     <%= link_to "Voltar", admin_categories_path, class: "btn btn-secondary" %>
   </div>
   <div class="col-lg-1">
-    <%= link_to "Editar", admin_edit_category_path(@category), class: "btn btn-warning" %>
+    <%= link_to "Editar", admin_edit_category_path(@category), "data-controller": "admin-modal", class: "btn btn-warning" %>
   </div>
   <div class="col-lg-1">
     <%= button_to "Apagar", admin_category_path(@category), method: :delete, class: "btn btn-danger", onclick: "return confirm('Deseja realmente excluir?')" %>
