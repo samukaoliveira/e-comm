@@ -4,3 +4,4 @@ import "./controllers"
 import * as bootstrap from "bootstrap"
 Turbo.session.drive = false
 import "./mask"
+

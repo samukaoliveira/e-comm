@@ -8,7 +8,7 @@
     "bootstrap": "^5.3.2",
     "bootstrap-icons": "^1.11.3",
     "esbuild": "^0.15.10",
-    "inputmask": "^5.0.7",
+    "inputmask": "^5.0.8",
     "jquery": "^3.7.1",
     "sass": "^1.55.0"
   },
