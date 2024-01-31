@@ -42,6 +42,8 @@ gem 'pundit'
 
 gem 'aws-sdk-s3', require: false
 
+gem 'image_processing'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

@@ -16,7 +16,7 @@
                   </div>
                 <div class="h5 mb-0 font-weight-bold text-gray-800 mt-5 d-flex justify-content-center">
                   <% if product.image.attached? %>
-                    <%= image_tag product.image, height: 300 %>
+                    <%= image_tag product.image.variant(:mid_thumb) %>
                   <% else %>  
                     <%= image_tag 'no_image', height: 300 %>
                   <% end %>

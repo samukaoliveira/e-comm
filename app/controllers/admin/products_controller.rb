@@ -44,6 +44,9 @@ module Admin
     def update
       respond_to do |format|
         if @product.update(product_params)
+          if params[:product][:remove_image] == '1'
+            @product.image.purge  # Isso exclui permanentemente a imagem associada ao modelo
+          end
           format.html { redirect_to admin_product_path(@product), notice: 'Produto foi atualizada com sucesso.' }
         else
           format.html { render :edit, status: :unprocessable_entity }

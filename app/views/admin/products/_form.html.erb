@@ -6,6 +6,9 @@
   <div class="form-inputs">
     <%= f.input :name, label: "Nome" %>
     <%= f.input :image, label: "Foto do produto" %>
+    <% if 'edit' %>
+      <%= f.check_box :remove_image, label: "Remover Imagem" %>
+    <% end %>
     <%= f.input :description, label: "Descrição" %>
     <%= f.input :price, label: "Preço" %>
 
