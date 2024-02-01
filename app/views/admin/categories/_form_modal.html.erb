@@ -9,7 +9,8 @@
               class="btn-close" 
                 data-bs-dismiss="modal" 
                 aria-label="Close"
-                style="background: none, border: none;">X</button>
+                style="background: none, border: none;"
+                onclick="closeModal()">X</button>
         </div>
         <div class="modal-body">
           <%= render "admin/categories/form", category: @category %>
@@ -17,4 +18,11 @@
       </div>
     </div>
   </div>
+
+  <script>
+     function closeModal() {
+      // Recarrega a página ao fechar a modal
+      window.location.reload();
+    }
+  </script>
 <% end %>
