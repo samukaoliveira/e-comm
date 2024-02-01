@@ -42,16 +42,16 @@ module Admin
 
     # PATCH/PUT /categories/1 or /categories/1.json
     def update
-      respond_to do |format|
+      
         if @product.update(product_params)
           if params[:product][:remove_image] == '1'
             @product.image.purge  # Isso exclui permanentemente a imagem associada ao modelo
           end
-          format.html { redirect_to admin_product_path(@product), notice: 'Produto foi atualizada com sucesso.' }
+          redirect_to admin_product_path(@product), notice: 'Produto foi atualizada com sucesso.'
         else
-          format.html { render :edit, status: :unprocessable_entity }
+          render :edit, status: :unprocessable_entity
         end
-      end
+      
     end
 
     # DELETE /categories/1 or /categories/1.json
