@@ -22,13 +22,11 @@ module Admin
     def create
       @category = Category.new(category_params)
 
-      respond_to do |format|
         if @category.save
-          format.html { redirect_to admin_category_path(@category), notice: 'Categoria foi criada com sucesso.' }
+          redirect_to admin_category_path(@category), notice: 'Categoria foi criada com sucesso.'
         else
-          format.html { render :new, status: :unprocessable_entity }
+          render :new, status: :unprocessable_entity
         end
-      end
     end
 
     # PATCH/PUT /categories/1 or /categories/1.json

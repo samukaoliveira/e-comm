@@ -31,13 +31,11 @@ module Admin
 
       @product = Product.new(product_params)
 
-      respond_to do |format|
         if @product.save
-          format.html { redirect_to admin_product_path(@product), notice: 'Produto foi criada com sucesso.' }
+          redirect_to admin_product_path(@product), notice: 'Produto foi criada com sucesso.'
         else
-          format.html { render :new, status: :unprocessable_entity }
+          render :new, status: :unprocessable_entity
         end
-      end
     end
 
     # PATCH/PUT /categories/1 or /categories/1.json
