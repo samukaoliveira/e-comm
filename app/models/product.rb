@@ -3,7 +3,8 @@ class Product < ApplicationRecord
     attachable.variant :small_thumb, resize_to_limit: [150, 150]
     attachable.variant :mid1_thumb, resize_to_limit: [216, 216]
     attachable.variant :mid2_thumb, resize_to_limit: [300, 300]
-    attachable.variant :big_thumb, resize_to_limit: [600, 600]
+    attachable.variant :big1_thumb, resize_to_limit: [450, 450]
+    attachable.variant :big2_thumb, resize_to_limit: [600, 600]
   end
 
   attr_accessor :remove_image

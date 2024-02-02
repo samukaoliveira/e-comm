@@ -16,6 +16,11 @@
                     <% @products.each do |product| %>
                         <div class="col mb-5">
                             <div class="card h-100 d-flex align-items-center">
+
+                            <% if product.promo? %>
+                                <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Promoção</div>
+                            <% end %>
+
                                 <!-- Product image-->
                                 <%= no_image_check(product, :mid1_thumb) %>
                                 <!-- Product details-->
