@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_01_123258) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_15_203419) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -53,6 +53,20 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_01_123258) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "enderecos", force: :cascade do |t|
+    t.string "logradouro"
+    t.integer "numero"
+    t.string "complemento"
+    t.string "bairro"
+    t.string "cidade"
+    t.string "estado"
+    t.integer "cep"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_enderecos_on_user_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name", null: false
     t.text "description", null: false
@@ -83,5 +97,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_01_123258) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "enderecos", "users"
   add_foreign_key "products", "categories"
 end

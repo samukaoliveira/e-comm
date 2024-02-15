@@ -8,6 +8,8 @@ class User < ApplicationRecord
 
   enum role: { user: 'user', admin: 'admin' }
 
+  has_many :enderecos
+
     
 
 end
