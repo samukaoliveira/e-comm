@@ -9,7 +9,6 @@ Rails.application.configure do
   config.cache_classes = false
 
   config.hosts << "ecomm.samukaoliveira.com.br"
-  config.hosts << "samukaoliveira.com.br"
   config.hosts << "localhost"
 
   # Do not eager load code on boot.

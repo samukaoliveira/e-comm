@@ -1,3 +1,4 @@
+
 services:
   
   web:
@@ -5,15 +6,29 @@ services:
       context: .
       dockerfile: Dockerfile
     #command: bash -c "rails db:create && rails db:migrate && rails db:seed"
+    
     ports:
       - "4000:3000"
     depends_on:
       - db
+    environment:
+      DATABASE_URL: postgres://postgres:$POSTGRES_PASSWORD@db:5432/sepab_development
+    networks:
+      - minha-rede
+
   db:
     image: postgres
     volumes:
       - ./tmp/db:/var/lib/postgresql/data
     environment:
+      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
+      POSTGRES_DB: sepab_development
     ports:
-      - "5433:5432"
+      - "5432:5432"
+    networks:
+      - minha-rede
+
+networks:
+  minha-rede:
+    driver: bridge

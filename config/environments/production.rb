@@ -7,7 +7,6 @@ Rails.application.configure do
   config.cache_classes = true
 
   config.hosts << "ecomm.samukaoliveira.com.br"
-  config.hosts << "samukaoliveira.com.br"
   config.hosts << "localhost"
 
   # Eager load code on boot. This eager loads most of Rails and

@@ -1,23 +1,25 @@
+
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: localhost
+  host: db
   username: postgres
-  password: postgres
+  password: password
+  port: 5432
   pool: 5
 
 development:
   <<: *default
-  database: e-comm_development
+  database: sepab_development
 
 
 test:
   <<: *default
-  database: e-comm_test
+  database: sepab_test
+
 
 production:
   <<: *default
-  database: e-comm_production
-  host: db
-  username: postgres
-  password: password
+  database: sepab_production
+  username: sepab
+  password: <%= ENV["SEPAB_DATABASE_PASSWORD"] %>
