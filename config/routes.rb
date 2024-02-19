@@ -37,6 +37,13 @@ Rails.application.routes.draw do
     # end  
    end
 
-    resources :perfil, only: [:index]
+    resources :perfil, only: [:index] do
+      collection do
+        patch :update_user
+      end
+
+      resources :endereco
+    end
 end
+
 
