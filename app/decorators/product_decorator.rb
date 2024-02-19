@@ -1,6 +1,9 @@
-include ProductHelper
+
 
 class ProductDecorator < SimpleDelegator
+include ActionView::Helpers::NumberHelper
+include ActionView::Helpers::TagHelper
+include ProductHelper
     # def full_promo
     #     if promo?
     #         "<span class=\"text-muted text-decoration-line-through\">R$ #{ActionController::Base.helpers.formataPreco(price)} </span>
@@ -12,9 +15,9 @@ class ProductDecorator < SimpleDelegator
 
 
     def price
-        return content_tag(:span, formataPreco(super), class: "text-muted text-decoration-line-through") + "#{formataPreco(promo_price)}" if promo?
+        return content_tag(:span, formataPreco(super), class: "text-muted text-decoration-line-through") + " #{formataPreco(promo_price)}" if promo?
 
-        formataPreco(promo_price)
+        formataPreco(super)
     end
 
     def label_promo
