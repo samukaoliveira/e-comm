@@ -15,6 +15,7 @@ class ProductDecorator < SimpleDelegator
         return content_tag(:span, formataPreco(super), class: "text-muted text-decoration-line-through") + "#{formataPreco(promo_price)}" if promo?
 
         formataPreco(promo_price)
+    end
 
     def label_promo
         if promo?
