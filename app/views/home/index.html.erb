@@ -8,9 +8,7 @@
                         <div class="col mb-5">
                             <div class="card h-100 d-flex align-items-center">
 
-                            <% if product.promo? %>
-                                <div class="badge bg-danger text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Promoção</div>
-                            <% end %>
+                            <%= ProductDecorator.new(product).label_promo %>
 
                                 <!-- Product image-->
                                 <%= no_image_check(product, :mid1_thumb) %>
@@ -19,14 +17,7 @@
                                     <div class="text-center">
                                         <!-- Product name-->
                                         <h5 class="fw-bolder"><%= product.name %></h5>
-                            <% if product.promo? %>
-                                        <span class="text-muted text-decoration-line-through">R$ <%= formataPreco(product.price) %></span>
-                            
-                                        <!-- Product price-->R$ 
-                                        <%= formataPreco(product.promo_price) %>
-                            <% else %>
-                                        R$ <%= formataPreco(product.price) %>
-                            <% end %>
+                                        <%= ProductDecorator.new(product).full_promo %>
                                     </div>
                                 </div>
                                 <!-- Product actions-->
@@ -36,89 +27,5 @@
                             </div>
                         </div>
                     <% end %>
-                    <!-- 
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            
-                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                          
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    
-                                    <h5 class="fw-bolder">Special Item</h5>
-                                    
-                                    <div class="d-flex justify-content-center small text-warning mb-2">layout 'application'
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                    </div>
-                                    
-                                    <span class="text-muted text-decoration-line-through">$20.00</span>
-                                    $18.00
-                                </div>
-                            </div>
-                            
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-                            </div>
-                        </div>
-                    </div>
-
-                   
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            
-                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                            
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                   
-                                    <h5 class="fw-bolder">Sale Item</h5>
-                                   
-                                    <span class="text-muted text-decoration-line-through">$50.00</span>
-                                    $25.00
-                                </div>
-                            </div>
-                           
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-                            </div>
-                        </div>
-                    </div>
-
-                   
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    
-                                    <h5 class="fw-bolder">Popular Item</h5>
-                                   
-                                    <div class="d-flex justify-content-center small text-warning mb-2">
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                    </div>
-                                   
-                                    $40.00
-                                </div>
-                            </div>
-                          
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    -->                  
+                                
                 </div>

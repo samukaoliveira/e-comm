@@ -8,11 +8,12 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
 
-  config.hosts << "ecomm.samukaoliveira.com.br"
+  config.hosts << "samukaoliveira.com.br"
   config.hosts << "localhost"
 
   # Do not eager load code on boot.
   config.eager_load = false
+
 
   # Show full error reports.
   config.consider_all_requests_local = true

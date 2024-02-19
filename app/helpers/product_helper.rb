@@ -27,9 +27,9 @@ module ProductHelper
 
     def formataPreco(preco)
         if preco != nil
-          return number_with_precision(preco, precision: 2, separator: ',')
+          return "R$ #{number_with_precision(preco, precision: 2, separator: ',')}"
         else
-          return "0,00"
+          return "R$ 0,00"
         end
     end
 
