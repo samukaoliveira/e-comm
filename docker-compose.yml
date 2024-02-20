@@ -1,34 +1,87 @@
 
+version: ""
+
+
 services:
   
   web:
     build:
       context: .
       dockerfile: Dockerfile
-      command: bash -c "rails db:migrate && rails db:seed"
-    
+    image: ecomm
+    #command: bash -c "rails db:migrate && rails db:seed"
+    volumes:
+      - .:/app
     ports:
       - "4000:3000"
     depends_on:
       - db
     environment:
-      DATABASE_URL: postgres://postgres:$POSTGRES_PASSWORD@db:5432/sepab_development
+      DATABASE_URL: postgres://$DB_USER:$DB_PASSWORD@$DB_HOST:$DB_PORT/$DB_NAME
+    stdin_open: true
+    tty: true
+    env_file:
+      - ${ENV_FILE:-.env}
     networks:
-      - minha-rede
+      - ecomm_net
 
   db:
     image: postgres
+    container_name: ecomm_db
     volumes:
-      - ./tmp/db:/var/lib/postgresql/data
+      - pg_data:/var/lib/postgresql/data
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: sepab_development
+      POSTGRES_USER: $DB_USER
+      POSTGRES_PASSWORD: $DB_PASSWORD
+      POSTGRES_DB: $DB_NAME
+    env_file:
+      - ${ENV_FILE:-.env}
     ports:
-      - "5432:5432"
+      - "5433:5433"
     networks:
-      - minha-rede
+      - ecomm_net
+
+
+  # redis:
+  #   image: redis:6.0.12-alpine
+  #   container_name: ecomm_redis
+  #   command: redis-server
+  #   volumes:
+  #     - pg_data:/var/lib/postgresql/data
+  #   logging:
+  #     driver: none
+  #   ports:
+  #     - "6379:6379"
+  #   networks:
+  #     - ecomm_net
+
+  # sidekiq:
+  #   image: web
+  #   container_name: ecomm_sidekiq
+  #   depends_on: 
+  #     - web
+  #     - db
+  #     - redis
+  #   #mem_limit: 512m
+  #   volumes:
+  #     - .:/app
+  #     - ecomm_bundle:usr/local/bundle
+  #   command: dotenv -f ".env" bundle exec sidekiq -C config/sidekiq.yml
+  #   networks:
+  #     - ecomm_net
+
+  mailcatcher:
+    image: dockage/mailcatcher:0.8.2
+    restart: on-failure
+    ports:
+      - "1080:1080"
+      - "1025:1025"
+
+volumes:
+  pg_data:
+  ecomm_bundle:
+
 
 networks:
-  minha-rede:
+  ecomm_net:
     driver: bridge

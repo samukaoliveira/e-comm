@@ -1,27 +1,20 @@
 
 default: &default
-  adapter: postgresql
+  adapter: <%= ENV["DB_ADAPTER"] %>
   encoding: unicode
-  host: db
-  username: postgres
-  password: password
-  port: 5432
+  host: <%= ENV["DB_HOST"] %>
+  username: <%= ENV["DB_USER"] %>
+  password: <%= ENV["DB_PASSWORD"] %>
+  port: <%= ENV["DB_PORT"] %>
   pool: 5
 
 development:
   <<: *default
-  database: sepab_development
-  host: localhost
-  password: postgres
 
 
 test:
   <<: *default
-  database: sepab_test
 
 
 production:
   <<: *default
-  database: sepab_production
-  username: sepab
-  password: <%= ENV["SEPAB_DATABASE_PASSWORD"] %>

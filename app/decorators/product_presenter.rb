@@ -1,6 +1,6 @@
 
 
-class ProductDecorator < SimpleDelegator
+class ProductPresenter < SimpleDelegator
 include ActionView::Helpers::NumberHelper
 include ActionView::Helpers::TagHelper
 include ProductHelper
