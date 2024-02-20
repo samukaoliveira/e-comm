@@ -20,6 +20,7 @@
                     <%= image_tag "profile.png", width: 120, class: "m-3" %>
 
                     <%= simple_form_for current_user, url: update_user_perfil_index_path, data: { turbo: false } do |f| %>
+                        <%= f.input :avatar %>
                         <%= f.input :email, readonly: true %>
                         <%= f.input :name %>
                         <%= f.input :phone %>
