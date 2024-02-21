@@ -17,10 +17,12 @@
                 <div class="card-body">
                     <%= render 'layouts/shared/flash' %>
                     <h2><%= current_user.name %> </h2>
-                    <%= image_tag "profile.png", width: 120, class: "m-3" %>
+                        <%= no_image_check(current_user, :mid1_avatar, "rounded-circle mt-3") %>
 
                     <%= simple_form_for current_user, url: update_user_perfil_index_path, data: { turbo: false } do |f| %>
-                        <%= f.input :avatar %>
+                        <%= f.input :image %>
+                        <%= f.label "Remover Imagem" %>
+                        <%= f.check_box :remove_image %>
                         <%= f.input :email, readonly: true %>
                         <%= f.input :name %>
                         <%= f.input :phone %>
