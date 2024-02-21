@@ -13,7 +13,7 @@ class User < ApplicationRecord
 
   enum role: { user: 'user', admin: 'admin' }
 
-  has_many :address
+  has_many :addresses
 
   attr_accessor :remove_image
 

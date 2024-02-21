@@ -2,20 +2,20 @@ class AddressesController < ApplicationController
     before_action :set_address, only: %i[ show edit update destroy ]
 
     def index
-        @addresses = current_user.address
+        @addresses = current_user.addresses
     end
 
     def show
     end
 
     def new
-        @address = current_user.address.new
+        @address = current_user.addresses.new
     end
 
     def create
-        @address = current_user.address.new(address_params)
+        @address = current_user.addresses.new(address_params)
         if @address.save
-            redirect to address_path(@address), notice: "Cadastrado com sucesso."
+            redirect_to address_path(@address), notice: "Cadastrado com sucesso."
         else
             render :new, status: :unprocessable_entity
         end
@@ -37,7 +37,7 @@ class AddressesController < ApplicationController
     end
 
     def set_address
-        @address = Address.find(params[:id])
+        @address = current_user.addresses.find(params[:id])
       end
 
 
