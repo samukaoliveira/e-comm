@@ -9,12 +9,13 @@ class AddressesController < ApplicationController
     end
 
     def new
-        @address = Address.new
+        @address = current_user.address.new
     end
 
     def create
-        if @address.save?
-            redirect to address_path, notice: "Cadastrado com sucesso."
+        @address = current_user.address.new(address_params)
+        if @address.save
+            redirect to address_path(@address), notice: "Cadastrado com sucesso."
         else
             render :new, status: :unprocessable_entity
         end
@@ -32,7 +33,7 @@ class AddressesController < ApplicationController
     private
 
     def address_params
-        params.require(:address).permit(:name, :street, :number)
+        params.require(:address).permit(:name, :street, :number, :neighboarhood, :zipcode, :city, :state)
     end
 
     def set_address

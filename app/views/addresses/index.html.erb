@@ -12,6 +12,8 @@
                     <td>Bairro</td>
                     <td>Número</td>
                     <td>CEP</td>
+                    <td>Cidade</td>
+                    <td>Estado</td>
                     
                 </tr>
             <% @addresses.each do |address| %>
@@ -22,11 +24,15 @@
                     <td><%= address.neighboarhood %></td>
                     <td><%= address.number %></td>
                     <td><%= address.zipcode %></td>
+                    <td><%= address.city %></td>
+                    <td><%= address.state %></td>
                     
                 </tr>
             <% end %>
 
             </table>
+
         </div>
+            <%= link_to "Novo", new_address_path, class: "btn btn-secondary" %>
     </div>
 </div>

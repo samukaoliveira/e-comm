@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="col-lg-10 offset-lg-1 justify-content-center">
+        <div class="row">
+            <h1 class="text-center mt-4">Novo Endereço</h1>
+        </div>
+        <div class="row">
+            <table class="table mt-4">
+                
+            <%= simple_form_for @address do |f| %>
+                <tr>
+                    <div class="form-inputs">
+                    <%= f.input :name %>
+                    <%= f.input :street %>
+                    <%= f.input :neighboarhood %>
+                    <%= f.input :number %>
+                    <%= f.input :zipcode %>
+                    <%= f.input :city %>
+                    <%= f.input :state %>
+                    </div>
+
+                    <div class="form-actions">
+                        <%= f.button :submit %>
+                    </div>
+                    
+                </tr>
+            <% end %>
+
+            </table>
+
+        </div>
+            <%= link_to "Novo", new_address_path, class: "btn btn-secondary" %>
+    </div>
+</div>
