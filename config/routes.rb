@@ -43,10 +43,11 @@ Rails.application.routes.draw do
         patch :update_user
         get :password
         patch :update_password
-        resources :endereco
       end
-
+      
     end
+
+    resources :addresses
 end
 
 
