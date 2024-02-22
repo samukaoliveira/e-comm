@@ -25,15 +25,25 @@ class AddressesController < ApplicationController
     end
 
     def update
+        if @address.update(address_params)
+            redirect_to address_path(@address), notice: 'Endereço foi atualizada com sucesso.'
+        else
+          render :edit, status: :unprocessable_entity
+        end
     end
 
     def destroy
+        if @address.destroy
+            redirect_to addresses_path, notice: "Endereço excluído com sucesso."
+        else
+            flash[:alert] = "Não foi possível excluir este endereço"
+        end
     end
 
     private
 
     def address_params
-        params.require(:address).permit(:name, :street, :number, :neighboarhood, :zipcode, :city, :state)
+        params.require(:address).permit(:name, :street, :number, :complement, :neighboarhood, :zipcode, :city, :state)
     end
 
     def set_address

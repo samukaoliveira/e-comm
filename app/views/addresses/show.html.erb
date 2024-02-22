@@ -1,16 +1,16 @@
 <div class="container">
     <div class="col-lg-10 offset-lg-1 justify-content-center">
         <div class="row">
-            <h1 class="text-center mt-4">Endereços</h1>
+            <h1 class="text-center mt-4">Endereço - <%= @address.name %></h1>
         </div>
         <div class="row">
             <table class="table mt-4">
                 <tr>
                     
-                    <td>Nome</td>
                     <td>Rua</td>
                     <td>Bairro</td>
                     <td>Número</td>
+                    <td>Complemento</td>
                     <td>CEP</td>
                     <td>Cidade</td>
                     <td>Estado</td>
@@ -19,10 +19,11 @@
             
                 <tr>
                     
-                    <td><%= @address.name %></td>
+                   
                     <td><%= @address.street %></td>
                     <td><%= @address.neighboarhood %></td>
                     <td><%= @address.number %></td>
+                    <td><%= @address.complement %></td>
                     <td><%= @address.zipcode %></td>
                     <td><%= @address.city %></td>
                     <td><%= @address.state %></td>

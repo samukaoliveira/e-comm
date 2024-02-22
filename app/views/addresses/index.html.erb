@@ -11,6 +11,7 @@
                     <td>Rua</td>
                     <td>Bairro</td>
                     <td>Número</td>
+                    <td>Complemento</td>
                     <td>CEP</td>
                     <td>Cidade</td>
                     <td>Estado</td>
@@ -23,9 +24,13 @@
                     <td><%= address.street %></td>
                     <td><%= address.neighboarhood %></td>
                     <td><%= address.number %></td>
+                    <td><%= address.complement %></td>
                     <td><%= address.zipcode %></td>
                     <td><%= address.city %></td>
                     <td><%= address.state %></td>
+                    <td><%= link_to "Detalhes", address_path(address) %></td>
+                    <td><%= link_to "Editar", edit_address_path(address) %></td>
+                    <td><%= button_to "Excluir", address_path(address), method: :delete %></td>
                     
                 </tr>
             <% end %>
