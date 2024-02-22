@@ -17,6 +17,7 @@ class AddressesController < ApplicationController
         if @address.save
             redirect_to address_path(@address), notice: "Cadastrado com sucesso."
         else
+            flash[:alert] = "Não foi possível cadastrar. Por favor, revise os campos"
             render :new, status: :unprocessable_entity
         end
     end
@@ -28,7 +29,8 @@ class AddressesController < ApplicationController
         if @address.update(address_params)
             redirect_to address_path(@address), notice: 'Endereço foi atualizada com sucesso.'
         else
-          render :edit, status: :unprocessable_entity
+            flash[:alert] = "Não foi possível atualizar. Por favor, revise os campos"
+            render :edit, status: :unprocessable_entity
         end
     end
 
