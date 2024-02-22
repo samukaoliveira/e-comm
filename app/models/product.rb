@@ -1,4 +1,8 @@
 class Product < ApplicationRecord
+
+  has_many :order_products
+  has_many :orders, :through => :order_products
+
   has_one_attached :image do |attachable|
     attachable.variant :small_avatar, resize_to_limit: [100, 100]
     attachable.variant :small_thumb, resize_to_limit: [150, 150]

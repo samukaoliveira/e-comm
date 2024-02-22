@@ -1,0 +1,24 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @order %>
+
+  <table class="table">
+    <th>Produto</th>
+    <th>Valor</th>
+    <th>Quantidade</th>
+    <% @order_products.includes(:product).each do | p | %>
+    <tr>
+    <td><%= p.product.name %></td>
+    <td><%= p.value %></td>
+    <td><%= p.amount %></td>
+    </tr>
+    <% end %>
+  </table>
+
+<div>
+  <%= link_to "Edit this order", edit_order_path(@order) %> |
+  <%= link_to "Adicionar Produtos", new_order_order_product_path(@order) %> |
+  <%= link_to "Back to orders", orders_path %>
+
+  <%= button_to "Destroy this order", @order, method: :delete %>
+</div>

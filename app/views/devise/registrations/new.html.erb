@@ -16,6 +16,13 @@
                 label: false,
                 placeholder: 'E-mail',
                 input_html: { autocomplete: "email" } %>
+    <%= f.input :cpf,
+                input_html: { class: "mask-cpf" },
+                required: true,
+                autofocus: true,
+                label: false,
+                placeholder: 'CPF',
+                input_html: { autocomplete: "cpf" } %>
     <%= f.input :phone,
                 input_html: { class: "mask-phone" },
                 label: false,

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  
   devise_for :users, controllers: {
   passwords: 'admin/passwords'
 }
@@ -9,6 +10,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
    root "home#index"
+   get 'home', to: "home#index"
 
    namespace :admin do
     root to: "home#index"
@@ -43,8 +45,10 @@ Rails.application.routes.draw do
         patch :update_user
         get :password
         patch :update_password
+          resources :orders do
+            resources :order_products
+          end
       end
-      
     end
 
     resources :addresses
