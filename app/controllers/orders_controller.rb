@@ -1,9 +1,9 @@
 # app/controllers/orders_controller.rb
 class OrdersController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!
 
   def index
-    @orders = current_user.orders # ou qualquer lógica que recupere os pedidos do usuário
+    @orders = current_user.orders
   end
 
   def show

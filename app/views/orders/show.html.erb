@@ -1,24 +1,37 @@
-<p style="color: green"><%= notice %></p>
+<div class="container">
+  <p style="color: green"><%= notice %></p>
+  <% sub_total = 0.0 %>
+  <% total_value = 0.0 %>
+  <%= render @order %>
 
-<%= render @order %>
+    <table class="table">
+      <th>Produto</th>
+      <th>Valor</th>
+      <th>Quantidade</th>
+      <th>Subtotal</th>
+      <th>Ações</th>
+      <% @order_products.includes(:product).each do | p | %>
+      <tr>
+      <td><%= p.product.name %></td>
+      <td><%= p.value %></td>
+      <td><%= p.amount %></td>
+      <td><%= formataPreco(sub_total += p.value.to_f * p.amount.to_i) %></td>
+      <% total_value += sub_total %>
+      <td class="col-lg-1"><%= button_to "", order_order_product_path(@order.id, p.id), method: :delete, class: "bi bi-trash" %></td>
+      </tr>
+      <% end %>
+      <tr>
+        <td colspan="3">Total</td>
+        <td class="fw-bold"><%= formataPreco(total_value) %></td>
+      </tr>
+    </table>
 
-  <table class="table">
-    <th>Produto</th>
-    <th>Valor</th>
-    <th>Quantidade</th>
-    <% @order_products.includes(:product).each do | p | %>
-    <tr>
-    <td><%= p.product.name %></td>
-    <td><%= p.value %></td>
-    <td><%= p.amount %></td>
-    </tr>
-    <% end %>
-  </table>
+  <div>
+    <%= link_to "Edit this order", edit_order_path(@order) %> |
+    <%= link_to "Adicionar Produtos", new_order_order_product_path(@order) %> |
+    <%= link_to "Back to orders", orders_path %>
 
-<div>
-  <%= link_to "Edit this order", edit_order_path(@order) %> |
-  <%= link_to "Adicionar Produtos", new_order_order_product_path(@order) %> |
-  <%= link_to "Back to orders", orders_path %>
-
-  <%= button_to "Destroy this order", @order, method: :delete %>
+    <%= button_to "Destroy this order", @order, method: :delete %>
+  </div>
 </div>
+

@@ -29,7 +29,7 @@ class OrderProductsController < ApplicationController
 
       respond_to do |format|
         if @order_product.save
-          format.html { redirect_to order_order_products_path(@order_product), notice: "Order product was successfully created." }
+          format.html { redirect_to order_path(@order), notice: "Order product was successfully created." }
           format.json { render :show, status: :created, location: @order_product }
         else
           format.html { render :new, status: :unprocessable_entity }
@@ -56,7 +56,7 @@ class OrderProductsController < ApplicationController
     @order_product.destroy
 
     respond_to do |format|
-      format.html { redirect_to order_products_url, notice: "Order product was successfully destroyed." }
+      format.html { redirect_to order_path(@order), notice: "Order product was successfully destroyed." }
       format.json { head :no_content }
     end
   end
