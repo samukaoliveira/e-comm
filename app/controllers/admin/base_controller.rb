@@ -2,7 +2,7 @@ module Admin
     class BaseController < ApplicationController
         layout 'admin'
         before_action :authenticate_user!
-        before_action :only_user!
+        before_action :only_user!, except: [:products_add_cart]
 
 
         private

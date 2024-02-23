@@ -29,6 +29,17 @@ class OrdersController < ApplicationController
     end
   end
 
+  def limpar_carrinho
+    @order = Order.find(params[:id])
+    @order_products = @order.order_products.includes(:product)
+  
+    if @order_products.destroy_all
+      redirect_to order_path(@order), notice: "Itens do carrinho foram removidos com sucesso."
+    else
+      format.html { render :show, status: :unprocessable_entity }
+    end
+  end
+
   private
 
   def order_params

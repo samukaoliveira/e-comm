@@ -1,42 +1,20 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>EComm</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-  </head>
-
-  <body>
-    <!-- Nav--> 
-    <%= render 'layouts/store/nav' %>
-    <!-- Header-->    
-    <%= render 'layouts/store/header' %>
-    <%= yield %>
-     <!-- Footer--> 
-    <%= render 'layouts/store/footer' %>
-  </body>
-
-  <script>
-
-    fetch('/products_api')
-.then(response => response.json())
+fetch('/products_api', {    //faz a requisição fetch forçando o formato JSON
+    headers: {
+      'Accept': 'application/json'
+    }
+  })
+  .then(response => response.json())
 .then(function(data){
     localStorage.setItem("products", JSON.stringify(data));
     if(!localStorage.getItem("cart")){
-        localStorage.getItem("cart", JSON.stringify([]));
-    } else {
-    console.error('A resposta da API está vazia ou nula.');
-  }
+        localStorage.getItem("cart", "[]");
+    }
 });
 
 //GLOGALS
 
-let products = JSON.parse(localStorage.getItem("products")) || [];
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let products = JSON.parse(localStorage.getItem("products"));
+let cart = JSON.parse(localStorage.getItem("cart"));
 
 function addItemToCart(productID){
     let product = products.find(function(product){
@@ -56,6 +34,7 @@ function addItemToCart(productID){
 
 }
 
+addItemToCart(1);
 
 
 function removeItemToCart(productID){
@@ -64,6 +43,7 @@ function removeItemToCart(productID){
 }
 
 
+removeItemToCart(1);
 
 
 function updateQuantity(productId, quantity){
@@ -75,6 +55,7 @@ function updateQuantity(productId, quantity){
     localStorage.setItem("cart", JSON.stringify(cart));
 }
 
+updateQuantity(2, 8);
 
 
 function getTotal(){
@@ -87,6 +68,4 @@ function getTotal(){
     }, 0);
 }
 
-
-  </script>
-</html>
+getTotal();

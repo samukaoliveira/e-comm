@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     delete "categories/:id", to: "categories#destroy", as: "destroy_category"
 
     get "products/", to: "products#index", as: "products"
+    get "products_api/", to: "products#products_add_cart", as: "products_add_cart"
     get "products/new", to: "products#new", as: "new_product"
     post "products", to: "products#create", as: "create_product"
     get "products/:id", to: "products#show", as: "product"
@@ -46,12 +47,17 @@ Rails.application.routes.draw do
         get :password
         patch :update_password
           resources :orders do
+            delete "limpar_carrinho", to: "orders#limpar_carrinho"
+            delete 'limpar_carrinho/:id', to: 'carrinho#limpar_carrinho_turbo', format: :turbo_stream
             resources :order_products
           end
       end
     end
 
     resources :addresses
+
+    get "products_api/", to: "admin/products#products_add_cart", as: "products_add_cart"
 end
+
 
 

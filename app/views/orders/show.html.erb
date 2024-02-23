@@ -31,7 +31,7 @@
     <%= link_to "Adicionar Produtos", new_order_order_product_path(@order) %> |
     <%= link_to "Back to orders", orders_path %>
 
-    <%= button_to "Destroy this order", @order, method: :delete %>
+    <%= button_to "limpar_carrinho", order_limpar_carrinho_path(@order), method: :delete %>
   </div>
 </div>
 

@@ -5,7 +5,19 @@ module Admin
     # GET /categories or /categories.json
     def index
       @products = Product.all
+
+      # respond_to do |format|
+      #   format.json { render json: @products }
+      #   format.html { render :index } # Adicione isso se quiser suporte HTML também
+      # end
       
+    end
+
+    def products_add_cart
+      @products = Product.all
+      respond_to do |format|
+        format.json { render json: @products.to_json(only: [:id]) } # Responde a solicitações JSON
+      end
     end
 
     # GET /categories/1 or /categories/1.json
