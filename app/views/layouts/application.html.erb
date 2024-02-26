@@ -27,7 +27,7 @@
 .then(function(data){
     localStorage.setItem("products", JSON.stringify(data));
     if(!localStorage.getItem("cart")){
-        localStorage.getItem("cart", JSON.stringify([]));
+        localStorage.setItem("cart", JSON.stringify([]));
     } else {
     console.error('A resposta da API está vazia ou nula.');
   }
@@ -35,31 +35,40 @@
 
 //GLOGALS
 
-let products = JSON.parse(localStorage.getItem("products")) || [];
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let products = JSON.parse(localStorage.getItem("products")) !== null ? JSON.parse(localStorage.getItem("products")) : [];
+let cart = JSON.parse(localStorage.getItem("cart")) !== null ? JSON.parse(localStorage.getItem("cart")) : [];
 
-function addItemToCart(productID){
-    let product = products.find(function(product){
-        return product.id == productID
-    });
 
-    if(cart.length == 0){
-        cart.push(product);
-    }else{
-        let res = cart.find(element => element.id == productID);
-        if(res === undefined){
-            cart.push(product);
+
+function addItemToCart(productId) {
+    if (products) {
+        let product = products.find(function(product) {
+            return product.id == productId;
+        });
+
+        
+        if (!cart.some(item => item.id === productId)) {
+            cart.push({"id": productId, "qt": 1});
+            localStorage.setItem("cart", JSON.stringify(cart));
+            console.log('Produto adicionado ao carrinho.');
+        } else if (cart.some(item => item.id === productId)) {
+            let existingItem = cart.find(item => item.id === productId);
+            existingItem.qt += 1;
+            localStorage.setItem("cart", JSON.stringify(cart));
+            console.log('Quantidade adicionado ao carrinho.');
+        } else {
+            console.log('Produto já está no carrinho.');
         }
+        
+    } else {
+        console.error('Lista de produtos não carregada.');
     }
-
-    localStorage.setItem("cart", JSON.stringify(cart))
-
 }
 
 
 
-function removeItemToCart(productID){
-    let temp = cart.filter(item => item.id != productID);
+function removeItemToCart(productId){
+    let temp = cart.filter(item => item.id != productId);
     localStorage.setItem("cart", JSON.stringify(temp));
 }
 
@@ -69,7 +78,7 @@ function removeItemToCart(productID){
 function updateQuantity(productId, quantity){
     for(let product of cart){
         if(product.id == productId){
-            product.quantity = quantity;
+            product.qt = quantity;
         }
     }
     localStorage.setItem("cart", JSON.stringify(cart));
