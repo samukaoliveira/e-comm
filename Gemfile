@@ -46,6 +46,13 @@ gem 'image_processing'
 
 gem 'mina-unicorn', :require => false
 
+gem 'will_paginate'
+
+gem 'kaminari'
+
+gem 'i18n'
+
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

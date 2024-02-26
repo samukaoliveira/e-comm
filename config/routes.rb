@@ -59,6 +59,7 @@ Rails.application.routes.draw do
 
     resources :addresses
 
+    get "product/:id", to: "home#show", as: "product"
     get "products_api/", to: "admin/products#products_add_cart", as: "products_add_cart"
 end
 

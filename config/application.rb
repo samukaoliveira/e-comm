@@ -10,14 +10,18 @@ if ['development', 'test'].include? ENV['RAILS_ENV']
   Dotenv::Railtie.load
 end
 
+
+
 module EComm
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
-
+    
     config.application_name = 'ecomm' # Substitua 'ecomm' pelo nome do seu aplicativo
-
-
+    
+    config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
+    config.i18n.default_locale = :pt
+    
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
