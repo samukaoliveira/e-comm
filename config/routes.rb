@@ -10,7 +10,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
    root "home#index"
-   get 'home', to: "home#index"
+   get 'home(/:tipo_categoria)', to: "home#index"
+   get '/(:tipo_categoria)', to: "home#index"
+   get 'cart', to: "home#cart"
 
    namespace :admin do
     root to: "home#index"
@@ -25,6 +27,7 @@ Rails.application.routes.draw do
     patch "categories/:id", to: "categories#update", as: "update_category"
     delete "categories/:id", to: "categories#destroy", as: "destroy_category"
 
+    
     get "products/", to: "products#index", as: "products"
     get "products_api/", to: "products#products_add_cart", as: "products_add_cart"
     get "products/new", to: "products#new", as: "new_product"

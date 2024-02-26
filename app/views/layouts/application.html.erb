@@ -96,6 +96,31 @@ function getTotal(){
     }, 0);
 }
 
+function loadCart(){
+   const cartElement = document.getElementById('cart');
+
+   cartElement.innerHTML = '';
+
+   cart.forEach(item => {
+    const productElement = document.createElement('div');
+
+            fetch('/cart_photos/' + item.id)
+        .then(response => response.json())
+        .then(data => {
+            // `data.photos` conterá um objeto onde as chaves são IDs dos produtos e os valores são caminhos das fotos
+            console.log(data.photos);
+
+            // Atualize a interface do usuário conforme necessário
+            // Por exemplo, você pode adicionar as imagens ao DOM usando JavaScript
+        })
+        .catch(error => console.error('Erro ao obter fotos do carrinho:', error));
+
+    productElement.innerHTML = `<a href="/products/${item.id}">Prod</a>Produto ID: ${item.id}, Qantidade: ${item.qt}`;
+    cartElement.appendChild(productElement);
+   });
+}
+
+//loadCart();
 
   </script>
 </html>
