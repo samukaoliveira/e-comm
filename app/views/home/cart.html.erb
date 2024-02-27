@@ -8,6 +8,10 @@
                         <div class="col mb-5">
                             <div class="card h-100 d-flex align-items-center">
                                 <div id="cart">
+                                    <% @cart.each do |c| %>
+                                        <%= c.name %>
+                                        <%= c.price %>
+                                    <% end %>
                                 </div>
                             </div>
                         </div>

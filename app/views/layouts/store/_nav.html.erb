@@ -8,11 +8,11 @@
             <%= render 'layouts/store/user_signed_in' %>
           </ul>
           <form class="d-flex">
-            <%= link_to orders_path, class: "btn btn-outline-primary" do %>
+            <%= link_to cart_path, class: "btn btn-outline-primary" do %>
               <i class="bi-cart-fill me-1 bg-outline-primary"></i>
               Cart
               <span class="badge bg-primary text-white ms-1 rounded-pill">
-                <%= carrinho_count %>
+                <%= cart_count %>
               </span>
             <% end %>
 

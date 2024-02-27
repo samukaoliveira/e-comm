@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
    root "home#index"
    get 'home/(:tipo_categoria)', to: "home#index"
-   get 'cart', to: "home#cart"
+   
 
    namespace :admin do
     root to: "home#index"
@@ -62,6 +62,7 @@ Rails.application.routes.draw do
     post "product/adicionar/:produto_id", to: "home#add_to_cart", as: "adcionar"
     post "product/remover/:produto_id", to: "home#remove_to_cart", as: "remover"
     get "products_api/", to: "admin/products#products_add_cart", as: "products_add_cart"
+    get 'cart', to: "home#cart"
 end
 
 

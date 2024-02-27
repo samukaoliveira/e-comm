@@ -1,4 +1,7 @@
 class HomeController < ApplicationController
+  before_action :cart
+
+
   def index
     if params[:tipo_categoria].present?
       @products = Product.where(category_id: params[:tipo_categoria]).map { |product| ProductPresenter.new(product) }
@@ -38,6 +41,18 @@ class HomeController < ApplicationController
       produtos.delete(params[:produto_id])
       cookies[:cart] = { value: produtos.to_json, expires: 1.year.from_now, httponly: true}
       redirect_to '/'
+    end
+
+  end
+
+
+  def cart
+    if cookies[:cart].blank?
+      redirect_to '/'
+      return
+    else
+      cart = JSON.parse(cookies[:cart])
+      @cart = Product.where(id: cart)
     end
 
   end
