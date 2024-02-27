@@ -28,7 +28,18 @@
                                             </div>
                                             <!-- Product actions-->
                                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                                <div class="text-center"><button class="btn btn-outline-dark mt-auto" onclick="addItemToCart(<%= product.id %>);">Adicionar ao carrinho</a></div>
+                                                <div class="text-center">
+                                                    
+                                                    <% if exists_cart?(product.id) %>
+
+                                                        <%= button_to 'Remover do carrinho', remover_path(product.id), class: "btn btn-outline-danger mt-auto" %>
+
+                                                    <% else %>
+                                                    
+                                                        <%= button_to 'Adicionar ao carrinho', adcionar_path(product.id), class: "btn btn-outline-dark mt-auto" %>
+
+                                                    <% end %>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

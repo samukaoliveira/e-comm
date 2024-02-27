@@ -14,6 +14,32 @@ class HomeController < ApplicationController
     @product = Product.find(params[:id])
   end
 
-  def cart
+  def add_to_cart
+    if cookies[:cart].present?
+      produtos = JSON.parse(cookies[:cart])
+    else
+      produtos = []
+    end
+
+    produtos << params[:produto_id]
+    produtos.uniq!
+
+    cookies[:cart] = { value: produtos.to_json, expires: 1.year.from_now, httponly: true}
+    redirect_to '/'
+
   end
+
+  def remove_to_cart
+    if cookies[:cart].blank?
+      redirect_to '/'
+      return
+    else
+      produtos = JSON.parse(cookies[:cart])
+      produtos.delete(params[:produto_id])
+      cookies[:cart] = { value: produtos.to_json, expires: 1.year.from_now, httponly: true}
+      redirect_to '/'
+    end
+
+  end
+
 end
