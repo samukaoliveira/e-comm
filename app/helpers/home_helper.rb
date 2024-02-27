@@ -3,9 +3,10 @@ module HomeHelper
     def cart_count
         itens = 0
 
-        if user_signed_in? && @cart.present?
-          itens = @cart.count
-        end
+        unless cookies[:cart].blank?
+            produtos = JSON.parse(cookies[:cart])
+            itens = produtos.count
+          end
       
         return itens
     end

@@ -63,6 +63,7 @@ Rails.application.routes.draw do
     post "product/remover/:produto_id", to: "home#remove_to_cart", as: "remover"
     get "products_api/", to: "admin/products#products_add_cart", as: "products_add_cart"
     get 'cart', to: "home#cart"
+
 end
 
 

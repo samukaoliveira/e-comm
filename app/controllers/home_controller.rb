@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  before_action :cart
+  #before_action :cart
 
 
   def index
@@ -32,6 +32,8 @@ class HomeController < ApplicationController
     redirect_to current_path
 
   end
+
+
 
   def remove_to_cart
     current_path = request.fullpath
