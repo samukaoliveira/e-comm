@@ -1,19 +1,27 @@
-
+<h1 class="text-center mt-4">Carrinho de Compras</h1>
 
 <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                     <!-- Product 1-->
                     
                    
-                        <div class="col mb-5">
-                            <div class="card h-100 d-flex align-items-center">
-                                <div id="cart">
+                        <table class="table">
+                            <th>Foto</th>
+                            <th>Nome do produto</th>
+                            <th>Valor</th>
+                            <th>Subtotal</th>
+                            <th>Ações</th>
+
                                     <% @cart.each do |c| %>
-                                        <%= c.name %>
-                                        <%= c.price %>
+                                    <tr>
+                                        <td><%= no_image_check(c, :small_avatar) %></td>
+                                        <td><%= c.name %></td>
+                                        <td><%= c.price %></td>
+                                        <td><%= c.price * 1 %></td>
+                                        <td><%= button_to "X", remover_path(c.id) %></td>
+                                    </tr>
                                     <% end %>
-                                </div>
-                            </div>
-                        </div>
+                                
+                        </table>
                                 
                 </div>

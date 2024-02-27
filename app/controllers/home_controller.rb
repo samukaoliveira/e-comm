@@ -18,6 +18,7 @@ class HomeController < ApplicationController
   end
 
   def add_to_cart
+    current_path = request.fullpath
     if cookies[:cart].present?
       produtos = JSON.parse(cookies[:cart])
     else
@@ -28,11 +29,12 @@ class HomeController < ApplicationController
     produtos.uniq!
 
     cookies[:cart] = { value: produtos.to_json, expires: 1.year.from_now, httponly: true}
-    redirect_to '/'
+    redirect_to current_path
 
   end
 
   def remove_to_cart
+    current_path = request.fullpath
     if cookies[:cart].blank?
       redirect_to '/'
       return
@@ -40,7 +42,7 @@ class HomeController < ApplicationController
       produtos = JSON.parse(cookies[:cart])
       produtos.delete(params[:produto_id])
       cookies[:cart] = { value: produtos.to_json, expires: 1.year.from_now, httponly: true}
-      redirect_to '/'
+      redirect_to current_path
     end
 
   end
@@ -56,5 +58,7 @@ class HomeController < ApplicationController
     end
 
   end
+
+
 
 end
