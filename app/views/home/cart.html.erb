@@ -9,19 +9,35 @@
                             <th>Foto</th>
                             <th>Nome do produto</th>
                             <th>Valor</th>
+                            <th>Valor com Desconto</th>
                             <th>Subtotal</th>
                             <th>Ações</th>
 
                                     <% @cart.each do |c| %>
                                     <tr>
-                                        <td><%= no_image_check(c, :small_avatar) %></td>
+                                        <td><%= no_image_check(c, :cart_avatar) %></td>
                                         <td><%= c.name %></td>
-                                        <td><%= c.price %></td>
-                                        <td><%= c.price * 1 %></td>
-                                        <td><%= button_to "X", remover_path(c.id) %></td>
+                                        <td><%= formataPreco(c.price) %></td>
+                                        <td><%= formataPreco(cart_price(c)) %></td>
+                                        <td><%= formataPreco(cart_price(c) * 1) %></td>
+                                        <td><%= button_to "", remover_path(c.id), class: "btn btn-danger bi bi-trash" %></td>
                                     </tr>
                                     <% end %>
+                                    <tr class="mt-5">
+                                        <td colspan="3" class="fw-bold text-success">Descontos</td>
+                                        <td class="fw-bold text-success">-
+                                            <%= formataPreco(cart_sum_descont) %></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4" class="fw-bold">Total</td>
+                                        <td class="fw-bold">
+                                            <%= formataPreco(cart_sum) %></td>
+                                        <td><%= button_to "Finalizar Compra", orders_path, class: "btn btn-success" %></td>
+                                    </tr>
                                 
                         </table>
+
+                        
                                 
                 </div>
+                

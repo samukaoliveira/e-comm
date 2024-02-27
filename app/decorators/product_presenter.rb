@@ -16,6 +16,7 @@ include ProductHelper
 
     def price
         return content_tag(:span, formataPreco(super), class: "text-muted text-decoration-line-through") + " #{formataPreco(promo_price)}" if promo?
+        
 
         formataPreco(super)
     end

@@ -5,6 +5,7 @@ module ApplicationHelper
             return image_tag model.image.variant(size), class: iclass
         else
             default_size = case size
+                            when :cart_avatar then '70x70'
                             when :small_avatar then '100x100'
                             when :small_thumb then '150x150'
                             when :mid1_avatar then '200x200'
