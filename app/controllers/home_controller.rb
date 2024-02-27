@@ -25,7 +25,32 @@ class HomeController < ApplicationController
       produtos = []
     end
 
-    produtos << params[:produto_id]
+    produto = {}
+    produto["id"] = params[:produto_id].to_i
+    produto["qt"] = 1
+
+    produtos << produto
+    produtos.uniq!
+
+    cookies[:cart] = { value: produtos.to_json, expires: 1.year.from_now, httponly: true}
+    redirect_to current_path
+
+  end
+
+
+  def increase_item
+    current_path = request.fullpath
+   
+    produtos = JSON.parse(cookies[:cart])
+    
+    produto = produtos.find { |p| p["id"].to_i == params[:produto_id].to_i }
+
+    qt = produto["qt"].to_i
+
+    produto["qt"] = (qt+1).to_s
+
+    produtos << produto
+
     produtos.uniq!
 
     cookies[:cart] = { value: produtos.to_json, expires: 1.year.from_now, httponly: true}
@@ -37,14 +62,27 @@ class HomeController < ApplicationController
 
   def remove_to_cart
     current_path = request.fullpath
+  
     if cookies[:cart].blank?
       redirect_to '/'
       return
     else
+      produto_id = params[:produto_id].to_i
+  
       produtos = JSON.parse(cookies[:cart])
-      produtos.delete(params[:produto_id])
-      cookies[:cart] = { value: produtos.to_json, expires: 1.year.from_now, httponly: true}
+      produtos.reject! { |produto| produto["id"].to_i == produto_id }
+  
+      cookies[:cart] = { value: produtos.to_json, expires: 1.year.from_now, httponly: true }
       redirect_to current_path
+    end
+  end
+
+  def delete_cart
+    current_path = request.fullpath
+    if cookies[:cart].exists?
+      cookies[:cart].delete
+      redirect_to '/'
+      return
     end
 
   end
@@ -56,7 +94,8 @@ class HomeController < ApplicationController
       return
     else
       cart = JSON.parse(cookies[:cart])
-      @cart = Product.where(id: cart)
+      product_ids = cart.map { |product| product["id"].to_i }
+      @cart = Product.where(id: product_ids)
     end
 
   end
