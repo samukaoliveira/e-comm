@@ -42,9 +42,9 @@ module HomeHelper
 
         @cart.each do |c|
             if c.promo?
-                total += c.promo_price.to_f
+                total += c.promo_price.to_f * cart_quantity(c.id).to_i
             else
-                total += c.price.to_f
+                total += c.price.to_f * cart_quantity(c.id).to_i
             end
         end
         return total
@@ -55,7 +55,7 @@ module HomeHelper
         descont = 0
 
         @cart.each do |c|
-            descont += c.price.to_f - c.promo_price.to_f if c.promo?
+            descont += (c.price.to_f - c.promo_price.to_f)  * cart_quantity(c.id).to_i if c.promo?
         end
 
         return descont
