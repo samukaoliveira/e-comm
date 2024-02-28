@@ -4,3 +4,4 @@
 //= link devise.js
 //= link admin.js
 //= link jquery.js
+//= link select2.min.js

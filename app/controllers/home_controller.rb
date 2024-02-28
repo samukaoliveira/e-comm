@@ -5,6 +5,8 @@ class HomeController < ApplicationController
   def index
     if params[:tipo_categoria].present?
       @products = Product.where(category_id: params[:tipo_categoria]).map { |product| ProductPresenter.new(product) }
+    elsif params[:name].present?
+      @products = Product.where("lower(name) ilike '%#{params[:name]}%'").map { |product| ProductPresenter.new(product) }
     else
       @products = Product.all.map { |product| ProductPresenter.new(product) }
     end 

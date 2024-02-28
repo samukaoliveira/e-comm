@@ -1,0 +1,87 @@
+
+
+
+<div id="navbar" class="row justify-content-center p-3">
+  <div id="centro" class="col-sm-11 align-items-center rounded ">
+    <div id="centro-row" class="row align-items-center">
+      <form action="/" method="get">
+        <div id="select" class="">
+          <input type="text" placeholder="Buscar..." class="col-sm-7 rounded border border-primary m-2" name="name" value="<%= params[:name] %> "/>
+          <input type="submit" value="Buscar" class="btn btn-primary btn-sm col-sm-3 ml-2 m-1">
+        </div> 
+      </form>
+    </div> 
+  </div> 
+</div>
+<br>
+
+<script>
+
+
+//  $(document).ready(function(){
+//    $('.select2').select2();
+//})
+
+  var select2Element = $(".busca-produto");
+
+  select2Element.select2({
+    minimumInputLength: 2,
+    tags: false,
+    ajax: {
+        url: '/',
+        dataType: 'json',
+        delay: 1000,
+        type: 'GET',
+        quietMillis: 50,
+        headers: {
+        'Accept': 'application/json'
+        },
+        data: function (busca) {
+            return {
+                term: busca
+            };
+        },
+        processResults: function (data) {
+
+           // Limitar o número de sugestões para no máximo 20
+            var limitaData = data.slice(0, 20);
+
+            return {
+                results: $.map(limitaData, function (item) {
+                    return {
+                        id: item.id,
+                        text: item.nome
+                    };
+                })
+            };
+        },
+        success: function (data) {
+            console.log('Sucesso:', data);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.error('Erro:', textStatus, errorThrown);
+        }
+    }
+});
+
+
+select2Element.on('select2:select', function (e) {
+  // Limpe todas as opções existentes antes de adicionar a nova opção
+  select2Element.empty();
+
+  // Obtém os dados do item selecionado
+  var data = e.params.data;
+
+  // Cria uma nova opção pré-selecionada
+  var option = new Option(data.text, data.id, true, true);
+
+  // Adiciona a nova opção e aciona um evento 'change'
+  select2Element.append(option).trigger('change');
+
+  // Adiciona o valor (id) como parâmetro ao link de detalhamento
+  var detalharLink = $('#detalhar-link');
+  detalharLink.attr('href', '<%= root_path %>' + '?nome=' + data.id);
+});
+
+</script>
+
