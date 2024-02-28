@@ -21,6 +21,7 @@ module EComm
     
     config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
     config.i18n.default_locale = :pt
+    config.time_zone = 'Brasilia'
     
     # Configuration for the application, engines, and railties goes here.
     #
