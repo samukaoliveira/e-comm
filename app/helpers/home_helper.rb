@@ -65,6 +65,6 @@ module HomeHelper
     def exists_cart?(id)
         return false if cookies[:cart].blank?
             produtos = JSON.parse(cookies[:cart])
-            produtos.include?(id.to_s)
+            return produtos.any? { |product| product["id"].to_s == id.to_s }
     end
 end
