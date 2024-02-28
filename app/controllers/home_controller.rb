@@ -26,7 +26,7 @@ class HomeController < ApplicationController
     end
 
     produto = {}
-    produto["id"] = params[:produto_id].to_i
+    produto["id"] = params[:produto_id]
     produto["qt"] = 1
 
     produtos << produto
@@ -42,12 +42,33 @@ class HomeController < ApplicationController
     current_path = request.fullpath
    
     produtos = JSON.parse(cookies[:cart])
-    
     produto = produtos.find { |p| p["id"].to_i == params[:produto_id].to_i }
-
+    
     qt = produto["qt"].to_i
+    
+    produto["qt"] = (qt+1)
+    
 
-    produto["qt"] = (qt+1).to_s
+    produtos << produto
+
+    produtos.uniq!
+
+    cookies[:cart] = { value: produtos.to_json, expires: 1.year.from_now, httponly: true}
+    redirect_to current_path
+
+  end
+
+
+  def decrease_item
+    current_path = request.fullpath
+   
+    produtos = JSON.parse(cookies[:cart])
+    produto = produtos.find { |p| p["id"].to_i == params[:produto_id].to_i }
+    
+    qt = produto["qt"].to_i
+    
+    produto["qt"] = (qt-1)
+    
 
     produtos << produto
 
@@ -94,7 +115,7 @@ class HomeController < ApplicationController
       return
     else
       cart = JSON.parse(cookies[:cart])
-      product_ids = cart.map { |product| product["id"].to_i }
+      product_ids = cart.map { |product| product["id"] }
       @cart = Product.where(id: product_ids)
     end
 

@@ -11,6 +11,19 @@ module HomeHelper
         return itens
     end
 
+    def cart_quantity(prod_id)
+        p_id = prod_id
+        units = 0
+
+        unless cookies[:cart].blank?
+            produtos = JSON.parse(cookies[:cart])
+            produto = produtos.find { |product| product["id"].to_i == p_id }
+            units = produto["qt"].to_i
+          end
+      
+        return units
+    end
+
     def cart_price(c)
         price = c
 

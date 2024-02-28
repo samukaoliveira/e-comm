@@ -1,0 +1,18 @@
+
+[1mFrom:[0m /home/sti/Sam/e-comm/app/helpers/home_helper.rb:21 HomeHelper#cart_quantity:
+
+    [1;34m14[0m: [32mdef[0m [1;34mcart_quantity[0m(prod_id)
+    [1;34m15[0m:     prod_id = prod_id
+    [1;34m16[0m:     units = [1;34m0[0m
+    [1;34m17[0m: 
+    [1;34m18[0m:     [32munless[0m cookies[[33m:cart[0m].blank?
+    [1;34m19[0m:         produtos = [1;34;4mJSON[0m.parse(cookies[[33m:cart[0m])
+    [1;34m20[0m:         puts produtos
+ => [1;34m21[0m:         binding.pry
+    [1;34m22[0m:         product = produtos.find { |p| p[[31m[1;31m"[0m[31mid[1;31m"[0m[31m[0m].to_i == prod_id }
+    [1;34m23[0m:         units = product[[31m[1;31m"[0m[31mqt[1;31m"[0m[31m[0m].to_i
+    [1;34m24[0m:       [32mend[0m
+    [1;34m25[0m:   
+    [1;34m26[0m:     [32mreturn[0m units
+    [1;34m27[0m: [32mend[0m
+

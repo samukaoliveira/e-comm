@@ -20,9 +20,11 @@
                                         <td><%= c.name %></td>
                                         <td><%= formataPreco(c.price) %></td>
                                         <td><%= formataPreco(cart_price(c)) %></td>
-                                        <td><input type="number" value="1" maxsize="1">
+                                        <td>
+                                        <%= button_to "-", reduzir_path(c), method: :post, class: "btn btn-primary" %>
+                                            <input type="number" value="<%= cart_quantity(c.id) %>" maxsize="1">
                                         <%= button_to "+", aumentar_path(c), method: :post, class: "btn btn-primary" %></td>
-                                        <td><%= formataPreco(cart_price(c) * 1) %></td>
+                                        <td><%= formataPreco(cart_price(c) * cart_quantity(c.id)) %></td>
                                         <td><%= button_to "", remover_path(c.id), class: "btn btn-danger bi bi-trash" %></td>
                                     </tr>
                                     <% end %>
