@@ -58,4 +58,27 @@
 
     
   </body>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // Seleciona o botão e a lista do dropdown
+    var dropdownBtn = document.getElementById("userDropdown");
+    var dropdownList = document.getElementById("dropdownList");
+
+    dropdownList.style.display = 'none';
+
+    // Adiciona um ouvinte de evento de clique ao botão
+    dropdownBtn.addEventListener("click", function() {
+      
+      // Alterna a visibilidade da lista ao clicar no botão
+      if (dropdownList.classList.contains('d-none') || elemento.classList.length === 0) {
+        dropdownList.classList.remove('d-none');
+        dropdownList.classList.add('d-block');
+      } else {
+        dropdownList.classList.remove('d-block');
+        dropdownList.classList.add('d-none');
+      }
+  });
+    });
+  </script>
 </html>

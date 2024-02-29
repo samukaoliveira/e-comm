@@ -10,6 +10,7 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
      <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
   </head>
 
   <body>
@@ -124,5 +125,22 @@ function loadCart(){
 
 //loadCart();
 
+document.addEventListener("DOMContentLoaded", function() {
+    // Seleciona o botão e a lista do dropdown
+    var dropdownBtn = document.getElementById("dropdownBtn");
+    var dropdownList = document.getElementById("dropdownList");
+
+    dropdownList.style.display = 'none';
+
+    // Adiciona um ouvinte de evento de clique ao botão
+    dropdownBtn.addEventListener("click", function() {
+      // Alterna a visibilidade da lista ao clicar no botão
+      if (dropdownList.style.display == 'none') {
+        dropdownList.style.display = 'block';
+      } else {
+        dropdownList.style.display = 'none';
+      }
+    });
+  });
   </script>
 </html>

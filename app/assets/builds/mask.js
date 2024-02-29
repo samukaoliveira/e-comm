@@ -3366,13 +3366,11 @@
   var element_phone = document.getElementsByClassName("mask-phone");
   var im_phone = new import_inputmask.default("(99) 999999999");
   im_phone.mask(element_phone);
-
   var element_cpf = document.getElementsByClassName("mask-cpf");
-  var im_cpf = new import_inputmask.default("999-999-999.99");
+  var im_cpf = new import_inputmask.default("999.999.999-99");
   im_cpf.mask(element_cpf);
 })();
 /*!
-
  * dist/inputmask
  * https://github.com/RobinHerbots/Inputmask
  * Copyright (c) 2010 - 2023 Robin Herbots

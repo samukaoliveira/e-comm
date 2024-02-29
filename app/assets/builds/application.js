@@ -7133,7 +7133,7 @@
   function setFormMode(mode) {
     session.setFormMode(mode);
   }
-  var Turbo = /* @__PURE__ */ Object.freeze({
+  var Turbo2 = /* @__PURE__ */ Object.freeze({
     __proto__: null,
     navigator: navigator$1,
     session,
@@ -7768,7 +7768,7 @@
       element = element.parentElement;
     }
   })();
-  window.Turbo = Turbo;
+  window.Turbo = Turbo2;
   start();
 
   // node_modules/@hotwired/turbo-rails/app/javascript/turbo/cable.js
@@ -10351,6 +10351,7 @@
       console.log(e);
       e.preventDefault();
       this.url = this.element.getAttribute("href");
+      console.log(this.url);
       fetch(this.url, {
         headers: {
           Accept: "text/vnd.turbo-stream.html"
@@ -10377,6 +10378,8 @@
     }
     disconnect() {
       this.modal.hide();
+      this.modal.dispose();
+      Turbo.destroyFrame(this.element.closest("[id^='turbo-frame']"));
     }
   };
 
@@ -15432,6 +15435,9 @@
   var element_phone = document.getElementsByClassName("mask-phone");
   var im_phone = new import_inputmask.default("(99) 999999999");
   im_phone.mask(element_phone);
+  var element_cpf = document.getElementsByClassName("mask-cpf");
+  var im_cpf = new import_inputmask.default("999.999.999-99");
+  im_cpf.mask(element_cpf);
 })();
 /*!
   * Bootstrap v5.3.2 (https://getbootstrap.com/)
