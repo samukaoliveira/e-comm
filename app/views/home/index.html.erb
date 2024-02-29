@@ -9,7 +9,8 @@
             <div class="container px-4 px-lg-5 mt-5">
                             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                                 <!-- Product 1-->
-                                <span class="text-danger col-lg-12"><%= @product_empty %></span>
+
+                            <%= search_empty %>    
                                 
                                 <% @products.each do |product| %>
                                     <div class="col mb-5">

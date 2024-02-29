@@ -67,4 +67,10 @@ module HomeHelper
             produtos = JSON.parse(cookies[:cart])
             return produtos.any? { |product| product["id"].to_s == id.to_s }
     end
+
+
+    def search_empty
+     
+        return content_tag(:span, "Nenhum resultado emncontrado com os dados fornecidos!", class: "text-danger col-lg-12") if @products.empty?
+    end
 end

@@ -7,7 +7,6 @@ class HomeController < ApplicationController
       @products = Product.where(category_id: params[:tipo_categoria]).map { |product| ProductPresenter.new(product) }
     elsif params[:name].present?
       @products = Product.where("lower(name) ilike '%#{URI::encode_www_form_component(params[:name])}%'").map { |product| ProductPresenter.new(product) }
-      @product_empty = "Nenhum resultado emncontrado com os dados fornecidos!" if @products.empty?
     else
       @products = Product.all.map { |product| ProductPresenter.new(product) }
     end 
