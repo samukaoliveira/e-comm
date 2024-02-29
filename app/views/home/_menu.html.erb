@@ -1,7 +1,7 @@
 
             <table class="table ">
                 <ul class="list-group list-group-flush" >
-                    <li class="list-group-item fs-2"><%= link_to "Categorias", perfil_index_path,  class: "menu-item-profile" %></li>
+                    <li class="list-group-item fs-2"><%= link_to "Categorias", root_path,  class: "menu-item-profile" %></li>
                 <% Category.all.each do | cat | %>    
                     <li class="list-group-item"><%= link_to "#{cat.name}","/?tipo_categoria=#{cat.id}",  class: "menu-item-profile" %></li>
                 <% end %>

@@ -90,6 +90,9 @@ GEM
     bindex (0.8.1)
     bootsnap (1.18.1)
       msgpack (~> 1.2)
+    bootstrap5-kaminari-views (0.0.1)
+      kaminari (>= 0.13)
+      rails (>= 3.1)
     builder (3.2.4)
     capybara (3.40.0)
       addressable
@@ -354,6 +357,7 @@ DEPENDENCIES
   awesome_print
   aws-sdk-s3
   bootsnap
+  bootstrap5-kaminari-views
   capybara
   cssbundling-rails
   database_cleaner

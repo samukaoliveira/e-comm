@@ -50,6 +50,8 @@ gem 'will_paginate'
 
 gem 'kaminari'
 
+gem 'bootstrap5-kaminari-views'
+
 gem 'i18n'
 
 
