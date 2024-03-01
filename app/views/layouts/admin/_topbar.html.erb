@@ -11,41 +11,31 @@
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto d-block">
                                
-                        <div class="topbar-divider d-none d-sm-block"></div>
-                        <div>
+                        <div class="topbar-divider d-inline"></div>
+                        
                         <!-- Nav Item - User Information -->
-                        <li class="nav-item no-arrow">
-                            <a class="nav-link" href="#" id="userDropdown" role="button">
-                                <span class="mr-2 text-gray-600 small"><%= current_user.name if current_user.present? %></span>
-                                <%= no_image_check(current_user, :small_avatar, "img-profile rounded-circle") %>
+                        <div class="d-inline">
+                            <li class="d-inline" >
+                                <button onclick="myFunction()" class="d-inline btn btn-transparent dropbtn">
+                                    <span class="mr-2 text-gray-600 small d-inline" ><%= current_user.name if current_user.present? %></span>
+                                    <%= no_image_check(current_user, :cart_avatar, "img-profile rounded-circle") %>
+                            </li>
+                                </button>
+
+                            <div class="dropdown-content" id="userDropdown">
+                                <li class="nav-item no-arrow  dropdownList">
+                                    <%= link_to admin_edit_password_path, method: :delete do %><i class="fas bi-key fa-sm fa-fw mr-2 text-gray-400"></i><span> Alterar Senha</span>
+                                    <% end %>
+                                </li>
                                 
-                            </a>
-                        </li>
-                        </div>
-
-                        <div class="nav" id="dropdownList">
-                            <li class="nav-item no-arrow">
-                                <a class="" href="#">
-                                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        Profile
-                                    </a>
-                            </li>
-                            
-                            <li class="nav-item no-arrow dropdownList">
-                                <a class="" href="#">
-                                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        Profile
-                                    </a>
-                            </li>
-
-                            <li class="nav-item no-arrow dropdownList">
-                                <a class="" href="#">
-                                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        Profile
-                                    </a>
-                            </li>
+                                <li class="nav-item no-arrow dropdownList">
+                                     <%= link_to destroy_user_session_path, method: :delete do %><i class="fas bi-x-square fa-sm fa-fw mr-2 text-gray-400"></i><span> Sair</span>
+                                    <% end %>
+                                </li>
+                            </div>
                         </div>
                     </ul>
+
 
                 </nav>
                 <!-- End of Topbar -->

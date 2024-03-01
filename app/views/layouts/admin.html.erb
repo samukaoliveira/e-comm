@@ -60,25 +60,22 @@
   </body>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    // Seleciona o botão e a lista do dropdown
-    var dropdownBtn = document.getElementById("userDropdown");
-    var dropdownList = document.getElementById("dropdownList");
+  function myFunction() {
+  document.getElementById("userDropdown").classList.toggle("show");
+}
 
-    dropdownList.style.display = 'none';
-
-    // Adiciona um ouvinte de evento de clique ao botão
-    dropdownBtn.addEventListener("click", function() {
-      
-      // Alterna a visibilidade da lista ao clicar no botão
-      if (dropdownList.classList.contains('d-none') || elemento.classList.length === 0) {
-        dropdownList.classList.remove('d-none');
-        dropdownList.classList.add('d-block');
-      } else {
-        dropdownList.classList.remove('d-block');
-        dropdownList.classList.add('d-none');
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
       }
-  });
-    });
+    }
+  }
+}
   </script>
 </html>
