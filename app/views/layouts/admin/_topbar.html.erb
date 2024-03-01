@@ -19,8 +19,8 @@
                                 <button onclick="myFunction()" class="d-inline btn btn-transparent dropbtn">
                                     <span class="mr-2 text-gray-600 small d-inline" ><%= current_user.name if current_user.present? %></span>
                                     <%= no_image_check(current_user, :cart_avatar, "img-profile rounded-circle") %>
-                            </li>
                                 </button>
+                            </li>
 
                             <div class="dropdown-content" id="userDropdown">
                                 <li class="nav-item no-arrow  dropdownList">
