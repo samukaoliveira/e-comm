@@ -20,9 +20,9 @@
                                             <%= ProductPresenter.new(product).label_promo %>
 
                                             <!-- Product image-->
-                                        <%= link_to product_path(product) do %>
-                                            <%= no_image_check(product, :mid1_avatar) %>
-                                        <% end %>
+                                            <%= link_to product_path(product) do %>
+                                                <%= no_image_check(product, :mid1_avatar, "rounded-lg mt-2") %>
+                                            <% end %>
                                             <!-- Product details-->
                                             <div class="card-body p-4">
                                                 <div class="text-center">
