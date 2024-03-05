@@ -8,7 +8,7 @@ module ApplicationHelper
                             when :cart_avatar then '45x45'
                             when :small_avatar then '100x100'
                             when :small_thumb then '150x150'
-                            when :mid1_avatar then '200x200'
+                            when :mid1_avatar then '180x180'
                             when :mid1_thumb then '216x216'
                             when :mid2_thumb then '300x300'
                             when :big1_thumb then '380x380'
