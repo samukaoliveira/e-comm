@@ -71,6 +71,6 @@ module HomeHelper
 
     def search_empty
      
-        return content_tag(:span, "Nenhum resultado emncontrado com os dados fornecidos!", class: "text-danger col-lg-12") if @products.empty?
+        return content_tag(:span, "Nenhum resultado encontrado com os dados fornecidos!", class: "text-danger col-lg-12") if @products.empty?
     end
 end
