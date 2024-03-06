@@ -74,13 +74,20 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Segurança
+                Perfil
             </div>
 
              <!-- Nav Item - Alterar Senha -->
             <li class="nav-item">
                 
-                <%= link_to admin_edit_password_path, method: :delete, class: "nav-link" do %>
+                <%= link_to admin_perfil_index_path, method: :delete, class: "nav-link" do %>
+                    <i class="fas fa-fw bi bi-key"></i><span> Atualizar Perfil</span>
+                <% end %>
+            </li>
+
+            <li class="nav-item">
+                
+                <%= link_to password_admin_perfil_index_path, method: :delete, class: "nav-link" do %>
                     <i class="fas fa-fw bi bi-key"></i><span> Alterar Senha</span>
                 <% end %>
             </li>

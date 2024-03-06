@@ -1,0 +1,22 @@
+
+        <div class="col-lg-10 offset-lg-1 justify-content-center">
+            <div class="card">
+                <div class="card-body">
+                    <%= render 'layouts/shared/flash' %>
+                    <h2><%= current_user.name %> </h2>
+                        <%= no_image_check(current_user, :mid1_avatar, "rounded-circle mt-3") %>
+
+                    <%= simple_form_for current_user, url: update_user_perfil_index_path, data: { turbo: false } do |f| %>
+                        <%= f.input :image %>
+                        <%= f.label "Remover Imagem" %>
+                        <%= f.check_box :remove_image %>
+                        <%= f.input :email, readonly: true %>
+                        <%= f.input :cpf, readonly: true %>
+                        <%= f.input :name %>
+                        <%= f.input :phone %>
+                        <%= f.button :submit, "Atualizar", class: "btn btn-success" %>
+                    <% end %>
+                </div>
+            </div>
+            
+        </div> 

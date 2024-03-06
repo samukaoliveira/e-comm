@@ -1,4 +1,6 @@
 class PerfilController < ApplicationController
+  before_action :no_admin!
+
   def index
   end
 
@@ -47,4 +49,9 @@ class PerfilController < ApplicationController
   def password_params
     params.require(:user).permit(:password, :password_confirmation)
   end
+
+
+  def no_admin!
+    redirect_to admin_perfil_index_path if current_user.admin?
+end
 end

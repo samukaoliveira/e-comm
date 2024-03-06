@@ -39,7 +39,16 @@ Rails.application.routes.draw do
       # resources :categories, except: [:destroy] do
     #   #delete "destroy", on: :member, as: "destroy"
       
-    # end  
+    # perfil-admin
+
+    resources :perfil, only: [:index] do
+
+          collection do
+            patch :update_user
+            get :password
+            patch :update_password
+          end
+      end
    end
 
     resources :perfil, only: [:index] do

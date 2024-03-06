@@ -24,7 +24,12 @@
 
                             <div class="dropdown-content" id="userDropdown">
                                 <li class="nav-item no-arrow  dropdownList">
-                                    <%= link_to admin_edit_password_path, method: :delete do %><i class="fas bi-key fa-sm fa-fw mr-2 text-gray-400"></i><span> Alterar Senha</span>
+                                    <%= link_to admin_perfil_index_path, method: :delete do %><i class="fas bi-key fa-sm fa-fw mr-2 text-gray-400"></i><span> Atualizar Perfil</span>
+                                    <% end %>
+                                </li>
+
+                                <li class="nav-item no-arrow  dropdownList">
+                                    <%= link_to password_admin_perfil_index_path, method: :delete do %><i class="fas bi-key fa-sm fa-fw mr-2 text-gray-400"></i><span> Alterar Senha</span>
                                     <% end %>
                                 </li>
                                 
