@@ -6,7 +6,7 @@ Rails.application.configure do
   # Code is not reloaded between requests.
   config.cache_classes = true
 
-  config.hosts << "samukaoliveira.com.br"
+  config.hosts << "vidademeseira.com.br"
   config.hosts << "localhost"
 
   # Eager load code on boot. This eager loads most of Rails and
