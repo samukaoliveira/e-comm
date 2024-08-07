@@ -1,8 +1,11 @@
 # syntax=docker/dockerfile:1
-FROM ruby:3.1.0
+FROM ruby:3.4-rc
 RUN apt-get update -qq && apt-get install -y nodejs postgresql-client && \
 apt-get install -y build-essential libvips libpq-dev && \
 apt-get clean && \
+apt-get install imagemagick &&  \
+apt-get install libvips42 &&  \
+sudo apt-get install libmagickwand-dev && \
 rm -rf /var/lib/apt/lists/* /user/share/doc /user/share/man
 
 # Instalar o Node.js e o npm

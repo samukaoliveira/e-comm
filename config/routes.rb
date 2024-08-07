@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
   
+  direct :rails_blob do |blob|
+    route_for(:rails_blob, blob)
+  end
+  direct :rails_blob_representation do |representation|
+    route_for(:rails_blob_representation, representation)
+  end
   
   devise_for :users, controllers: {
   passwords: 'admin/passwords'
